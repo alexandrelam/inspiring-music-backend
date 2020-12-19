@@ -38,9 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'login'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = './urls'
@@ -85,7 +92,6 @@ DATABASES = {
         'PORT': 5432,
     }
 }
-
 
 
 # Password validation
