@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "b4b7333f-e7b9-4191-9841-337bacb927bf",
+		"name": "inspiring backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createuser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"\",\n    \"password\": \"\",\n    \"password2\": \"\",\n    \"email\": \"\",\n    \"first_name\": \"\",\n    \"last_name\": \"\"\n}"
+				},
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "hero with auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
