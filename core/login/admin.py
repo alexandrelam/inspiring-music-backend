@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Hero, Entrainement, Note
+from .models import WrapperClass, EntrainementClass, PartitionClass, AnneeClass
 
-# Register your models here.
-admin.site.register(Hero)
-admin.site.register(Entrainement)
-admin.site.register(Note)
+admin.site.register(WrapperClass)
+admin.site.register(EntrainementClass)
+admin.site.register(PartitionClass)
+admin.site.register(AnneeClass)

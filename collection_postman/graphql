@@ -1,0 +1,69 @@
+{
+  allUser {
+    edges {
+      node {
+        firstName
+        lastName
+        anneeclassSet {
+          edges {
+            node {
+              annee
+              note {
+                entrainementclassSet {
+                  edges {
+                    node {
+                      val
+                    }
+                  }
+                }
+                quiz
+              }
+              rythme {
+                entrainementclassSet {
+                  edges {
+                    node {
+                      val
+                    }
+                  }
+                }
+                quiz
+              }
+              partition {
+                nuance {
+                  entrainementclassSet {
+                    edges {
+                      node {
+                        val
+                      }
+                    }
+                  }
+                  quiz
+                }
+                structure {
+                  entrainementclassSet {
+                    edges {
+                      node {
+                        val
+                      }
+                    }
+                  }
+                  quiz
+                }
+              }
+              instruments {
+                entrainementclassSet {
+                  edges {
+                    node {
+                      val
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

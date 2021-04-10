@@ -5,29 +5,42 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 from django.contrib.postgres.fields import ArrayField
 
-# Create your models here.
 
-
-class Hero(models.Model):
-    name = models.CharField(max_length=60)
-    alias = models.CharField(max_length=60)
+class WrapperClass(models.Model):
+    name = models.CharField(max_length=50)
+    quiz = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name
-
-class Note(models.Model):
-    quizz = models.BooleanField(default=False)
-    
-    def __str__(self):
-        return f"Note : {self.id}"
+        return f"Name : {self.name}"
 
 
-class Entrainement(models.Model):
-    note = models.ForeignKey(Note, on_delete=models.CASCADE, default=None)
-    state = models.BooleanField(default=False)
+class EntrainementClass(models.Model):
+    wrapper = models.ForeignKey(
+        WrapperClass, on_delete=models.CASCADE, default=None)
+    val = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Entrainement : {self.id}"
+        return f"Entrainement de : {self.wrapper.name}"
+
+
+class PartitionClass(models.Model):
+    nuance = models.ForeignKey(
+        WrapperClass, related_name='nuance', on_delete=models.CASCADE)
+    structure = models.ForeignKey(
+        WrapperClass, related_name='structure', on_delete=models.CASCADE)
+
+
+class AnneeClass(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
+    annee = models.IntegerField()
+    note = models.ForeignKey(
+        WrapperClass, related_name='note', on_delete=models.CASCADE)
+    rythme = models.ForeignKey(
+        WrapperClass, related_name='rythme', on_delete=models.CASCADE)
+    partition = models.ForeignKey(PartitionClass, on_delete=models.CASCADE)
+    instruments = models.ForeignKey(
+        WrapperClass, related_name='instruments', on_delete=models.CASCADE)
 
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)

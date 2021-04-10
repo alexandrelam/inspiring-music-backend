@@ -2,13 +2,6 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
-from .models import Hero
-
-
-class HeroSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Hero
-        fields = '__all__'
 
 
 class RegisterSerializer(serializers.ModelSerializer):
